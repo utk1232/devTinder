@@ -1,0 +1,24 @@
+{
+  "name": "devtinder",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/utk1232/devTinder#readme",
+  "bugs": {
+    "url": "https://github.com/utk1232/devTinder/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utk1232/devTinder.git"
+  },
+  "license": "ISC",
+  "author": "Utkarsh",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
