@@ -42,7 +42,7 @@ app.post("/login", async (req, res) => {
         if (!user) {
             throw new Error("Invalid Email id");
         }
-        const isPassword = await bcrypt.compare(password.user.password);
+        const isPassword = await bcrypt.compare(password, user.password);
 
         if (isPassword) {
             res.send("Login Successfull");
@@ -50,7 +50,7 @@ app.post("/login", async (req, res) => {
             throw new Error("Password not correct");
         }
     } catch (err) {
-        res.status("400").send("Eror:" + err.message);
+        res.status(400).send("Eror:" + err.message);
     }
 })
 
