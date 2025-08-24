@@ -3,9 +3,14 @@ const app = express();
 const connectDB = require("./config/database");
 const User = require("./models/user");
 const bcrypt = require('bcrypt');
+const cookies = require("cookie-parser");
+
+
 const { validateSignUpData } = require("./utils/validation");
 
 app.use(express.json());
+app.use(cookies());
+
 
 app.post("/signup", async (req, res) => {
     try {
@@ -52,6 +57,15 @@ app.post("/login", async (req, res) => {
     } catch (err) {
         res.status(400).send("Eror:" + err.message);
     }
+})
+
+app.get("/profile", async (req, res) => {
+   const cookie = req.cookies;
+
+   const {tooken} = cookie;
+   
+   console.log("Cookies:", cookie);
+   res.send("Profile Page");
 })
 
 // get all users from the database
